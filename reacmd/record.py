@@ -10,4 +10,7 @@ import reapy
 def entrypoint():
     """Start the Recording Operation for the Active Project."""
     project = reapy.Project()
-    project.record()
+    if project.is_recording:
+        project.current_surface_stop()
+    else:
+        project.current_surface_record()
